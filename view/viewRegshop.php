@@ -1,0 +1,252 @@
+<?php
+require_once "../includes/shop.php";
+require_once "layout/header.php";
+
+$shop = new Shop(); 
+
+?>
+
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+    
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+
+<div ng-controller="AddshopDetails" class="container" 
+ng-init="displayshop()">
+<hr>
+<div ng-controller="Admincontroller"> 
+<button class="btn btn-default" ng-click="showAdmin()">Back</button>
+</div>
+      
+<h2><span class="glyphicon glyphicon-file"></span> Shop Details</h2>
+<table class="table table-bordered table-striped"> 
+    <thread class="thread-dark"> 
+    <tr>
+        <th><b>Nic Number</b></th>
+        <th><b>First Name</b></th>
+        <th><b>Last Name</b></th>
+        <th><b>Phone Number</b></th>
+        <th><b>Address</b></th>
+		<th><b>Office Email</b></th>
+        <th><b>User(shop) Name</b></th>
+        <th><b>Edit</b></th>
+        <th><b>Delete</b></th>
+
+    </tr>
+    </thread>
+    <tbody>
+    <?php
+    $result = $shop->find_all();
+    while ($row = mysqli_fetch_assoc($result))
+    {    
+        echo '
+    <tr>
+        <td>'.$row['nic'].'</td>
+        <td>'.$row['fn'].'</td>  
+        <td>'.$row['ln'].'</td> 
+        <td>'.$row['pn'].'</td>
+        <td>'.$row['address'].'</td>
+        <td>'.$row['email'].'</td>
+        <td>'.$row['un'].'</td>
+        <td><button onclick="showEdit()" ng-click="editshop(x)" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span>
+            </button></td>
+        <td><button class="btn btn-danger" ng-click="deleteshop(x.nic)"><span class="glyphicon glyphicon-trash"></span>
+            </button></td>  
+   '?>   
+        <div id="myModal" class="modal" ng-init="editshop()">
+        <!-- Modal content -->
+        <div class="modal-content" ng-init="details">
+            <span class="close">&times;</span>
+            <form method="POST"> 
+                    <div class="form-group row flex-v-center">
+                        <div class="col-xs-2 col-sm-4">
+                            <label for="from">Nic Number </label>
+                        </div>
+                        <div class="col-xs-6">
+                        <!-- <label>First Name</label> -->
+                            <p class="input-group">  
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input type="text" class="form-control"   required name="textinput" 
+                                readonly ng-model="details.nic" ng-init='details.nic=details.nic' placeholder="Nic Number">             
+                            </p>
+                        </div>
+                    </div>
+                
+                    <div class="form-group row flex-v-center">
+                        <div class="col-xs-2 col-sm-4">
+                            <label for="from">First Name</label>
+                        </div>
+                        <div class="col-xs-6">
+                        <p class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+                            <input type="text" class="form-control"  required name="textinput" 
+                            ng-model="details.fn" ng-init="details.fn=details.fn" placeholder="First Name">             
+                        </p>
+                        </div>
+                    </div>
+                
+                    <div class="form-group row flex-v-center">
+                        <div class="col-xs-2 col-sm-4">
+                            <label for="from">Last Name</label>
+                        </div>
+                        <div class="col-xs-6">
+                        <p class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-th-list"></i></span>
+                                <input type="text" class="form-control"  required name="textinput" 
+                            ng-model="details.ln" ng-init="details.ln=details.ln" placeholder="Last Name"> 
+                        </p>
+                        </div>
+                    </div>
+                
+                    <div class="form-group row flex-v-center">
+                        <div class="col-xs-2 col-sm-4">
+                            <label for="from">Phone Number</label>
+                        </div>
+                        <div class="col-xs-6">
+                        <p class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-th-list"></i></span>
+                                <input type="text" class="form-control"  required name="textinput" 
+                            ng-model="details.pn" ng-init="details.pn=details.pn" placeholder="Phone Number">
+                        </p>
+                        </div>
+                    </div>
+                
+                
+                    <div class="form-group row flex-v-center">
+                        <div class="col-xs-2 col-sm-4">
+                            <label for="from">Address</label>
+                        </div>
+                        <div class="col-xs-6">
+                        <p class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+                                <input type="textarea" class="form-control"  required name="textinput" 
+                                ng-model="details.address" ng-init="details.address=details.address"
+                                placeholder="Address" required="required">             
+                            </p>
+                        </div> 
+                    </div>
+                
+                    <div class="form-group row flex-v-center">
+                        <div class="col-xs-2 col-sm-4">
+                            <label for="from">Office Email</label>
+                        </div>
+                        <div class="col-xs-6">
+                        <p class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+                                <input type="email" class="form-control"  required name="textinput" 
+                                ng-model="details.email" ng-init="details.email=details.email"
+                                placeholder="Office Email" required="required">             
+                            </p>
+                        </div> 
+                    </div>
+                
+                    <div class="form-group row flex-v-center">
+                            <div class="col-xs-2 col-sm-4">
+                                <label for="from">shop Name</label>
+                            </div>
+                            <div class="col-xs-6">
+                            <p class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+                                    <input type="text" class="form-control"  required name="textinput" 
+                                    ng-model="details.un" ng-init="details.un=details.un"
+                                     placeholder="User(shop) Name" required="required">             
+                                </p>
+                            </div> 
+						</div>
+					
+
+                
+                    <div class="form-group">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                        <button type="submit" name="registration" class="btn btn-warning login-btn btn-block" 
+                        ng-click="editshops()">Edit Details 
+                        <span class="glyphicon glyphicon-send"></span></button>
+                        
+                    </div>
+                </div> 
+            </form>
+
+
+
+
+        </div>
+        
+        </div>
+
+    </tr>
+    <?php
+    }
+    ?>
+    </tbody>
+
+    </table>
+
+</div>
+      
+<script>
+function showEdit(){
+    // Get the modal
+    var modal = document.getElementById('myModal');
+    // Get the button that opens the modal
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks the button, open the modal 
+    modal.style.display = "block";
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        }
+    }
+}
+</script>
+
+<?php
+require_once "layout/footer.php";
+?>
+
+      
