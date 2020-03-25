@@ -36,8 +36,9 @@ require_once "layout/header.php";
 	  <div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-4 col-lg-8"> 
-		<div ng-controller="Admincontroller"> 
-		<button class="btn btn-default" ng-click="showAdmin()">Back</button></div>
+		<div> 
+			<a href="admin.php"><button class="btn btn-default">Back</button></a>
+		</div>
 		<center><h2><b>New Shop Registration</b></h2></center>
 		<hr>  
 	

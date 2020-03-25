@@ -11,7 +11,8 @@ $connect = mysqli_connect("localhost", "root", "", "fmsmy");
 
         /* if(!empty($data->farmernic) AND !empty($data->itemcode) AND !empty($data->amount) AND !empty($data->total){*/
 
-               $insertQuery = "INSERT INTO load_stores_items(Item_Code,Load_Num,Amount) VALUES ('$itemcode',null,'$amount')";  
+               $insertQuery = "INSERT INTO load_stores_items(Item_Code,Load_Num,Amount) VALUES ('$itemcode',null,'$amount')"; 
+           
                  if(mysqli_query($connect, $insertQuery))  
                  {  
                       echo 'Ok ..  ';  

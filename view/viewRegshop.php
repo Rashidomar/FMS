@@ -53,10 +53,11 @@ $shop = new Shop();
 <div ng-controller="AddshopDetails" class="container" 
 ng-init="displayshop()">
 <hr>
-<div ng-controller="Admincontroller"> 
-<button class="btn btn-default" ng-click="showAdmin()">Back</button>
+
+<div>
+    <a href="admin.php"><button class="btn btn-default"">Back</button></a>
 </div>
-      
+          
 <h2><span class="glyphicon glyphicon-file"></span> Shop Details</h2>
 <table class="table table-bordered table-striped"> 
     <thread class="thread-dark"> 

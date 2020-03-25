@@ -7,10 +7,10 @@ $item = new Item();
 
 require_once "layout/header.php";
 ?>
-
-<div ng-controller="Admincontroller">
-  <button class="btn btn-default" ng-click="showAdmin()">Back</button>
+<div><a href="admin.php" > 
+    <button class="btn btn-default"">Back</button></a>
 </div>
+    
 <div class="container container-fluid"><h2> Load Items To The Farm Shop <span class="glyphicon glyphicon-shopping-cart"> </h2>
 
 </div>

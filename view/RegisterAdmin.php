@@ -20,7 +20,7 @@ $admin = new Admin();
 
            if($new_user)
            {
-                header('Location: RegisterAdmin.php');
+                header('Location: adminwelcome.php');
     
            }else{
     
@@ -50,7 +50,7 @@ require_once "layout/header.php";
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Employee Id</label>  
   <div class="col-md-4">
-    <input name="employee_id" type="text" ng-disabled="all" placeholder="employee id" class="form-control input-md">
+    <input name="employee_id" type="text" placeholder="employee id" class="form-control input-md">
   </div>
 
 </div>

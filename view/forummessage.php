@@ -49,11 +49,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 
 
-<div ng-controller="ForumMessageDetails" class="container" 
-ng-init="displayMessages()">
+<div  class="container">
 <hr>
-<div ng-controller="Admincontroller"> 
-<button class="btn btn-default" ng-click="showAdmin()">Back</button>
+<div><a href="admin.php" > 
+    <button class="btn btn-default"">Back</button></a>
 </div>
     
 <h2><span class="glyphicon glyphicon-envelope"></span><b> Forum Messages</b></h2>

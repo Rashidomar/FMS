@@ -1,4 +1,8 @@
 <?php
+require_once "../includes/sessions.php";
+
+$session = new Session();
+
 require_once "layout/header.php";
 ?>
 <style>
@@ -13,20 +17,39 @@ require_once "layout/header.php";
         
 </style>
         
-<div class="container container-fluid"><h1> <i class="fa fa-credit-card fa-1x"></i> Hi Farm Shop</h1>
+<div class="container container-fluid">
+<?php
+		if($session->is_logged_in()){
 
-<div>
+			echo '<h1> <i class="fa fa-credit-card fa-1x"></i> Hi ' .$session->username.'</h1>';
+		
+		}else{
+            
+			header("Location: farmshopwelcome.php");
+		}
+	?>
+<div ng-controller="FarmShopController">
 <hr>
 <div class ="row">
-
-<div class="col-lg-4"></div><div class = "col-lg-4"><a href="invoice.php" target="_blank"><button type="button" class="btn btn-success btn-sq-lg btn-block">
-    <i class="fa fa-shopping-cart fa-4x"></i><br/> Point of Sale</button></a></div><div class = "col-sm-4"></div></div>
+    <div class="col-lg-4"></div>
+    <div class = "col-lg-4">
+        <a href="invoice.php"><button type="button" class="btn btn-success btn-sq-lg btn-block" target="_blank">
+            <i class="fa fa-shopping-cart fa-4x"></i><br/> Point of Sale</button>
+        </a>
+    </div>
+    <div class = "col-sm-4"></div>
+</div>
 </div>
 
 <div ng-controller="FarmShopController">
 <div class ="row">
-    <div class="col-lg-4"></div><div class = "col-lg-4"><button type="button" class="btn btn-warning btn-sq-lg btn-block" ng-click="viewReports()" target="_blank">
-    <i class="fa fa-file fa-4x"></i><br/> Month Reports</a></div><div class = "col-sm-4"></div></div>    
+    <div class="col-lg-4"></div>
+    <div class = "col-lg-4">
+        <a href="reports.php"><button type="button" class="btn btn-warning btn-sq-lg btn-block" target="_blank">
+            <i class="fa fa-file fa-4x"></i><br/> Month Reports</button></a>
+    </div>
+    <div class = "col-sm-4"></div>
+</div>    
 
 </div>
 

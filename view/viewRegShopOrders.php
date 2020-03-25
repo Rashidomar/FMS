@@ -8,9 +8,10 @@ require_once "layout/header.php";
 ?>
 
 <br /><br />
-<div ng-controller="Admincontroller">
-  <button class="btn btn-default" ng-click="showAdmin()">Back</button>
+<div><a href="admin.php" > 
+    <button class="btn btn-default"">Back</button></a>
 </div>
+    
 <div  ng-controller="RegShopOrderController" ng-init="ViewOrdersDisplay()" ><center>
 
 <div class="container" >

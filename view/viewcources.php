@@ -53,9 +53,10 @@ $course = new Course();
 <div ng-controller="AddCourseDetails" class="container" 
 ng-init="displayCourse()">
 <hr>
-<div ng-controller="Admincontroller"> 
-<button class="btn btn-default" ng-click="showAdmin()">Back</button>
+<div><a href="admin.php" > 
+    <button class="btn btn-default"">Back</button></a>
 </div>
+    
       
 <h2><span class="glyphicon glyphicon-hourglass"></span><b> Course Details</b></h2>
 <table class="table table-bordered table-striped"> 

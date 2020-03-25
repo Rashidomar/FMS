@@ -42,7 +42,7 @@ require_once "layout/header.php";
 	  <div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-4 col-lg-8"> 
-		<a href="farmshopwelcome.php"><button class="btn btn-default" >Back</button></a>
+		<a href="farmshopwelcome.php"><button class="btn btn-default">Back</button></a>
 		<center><h2><b>New Farmer Registration</b></h2></center>
 		<hr>  
 	

@@ -32,19 +32,6 @@ require_once "layout/header.php";
       <div class = "col-lg-4">
       </div>
       </div>
-
-      <hr>
-<div>
-      <div class ="well">
-            <div class="col-lg-4">
-            </div>
-            <div class = "col-lg-4">
-                  <a type="button" class="btn btn-active btn-lg btn-block" href="invoice.php"><span class="glyphicon glyphicon-shopping-cart"></span> Point of Sale</a>
-            </div>
-            <div class = "col-sm-4"></div>
-      </div>
-</div>
-
 <?php
 require_once "layout/footer.php";
 ?>

@@ -91,8 +91,8 @@ require_once "layout/header.php";
 ?>
 
 <div class="container container-fluid">
-<div ng-controller="Admincontroller"> 
-<button class="btn btn-default" ng-click="showAdmin()">Back</button>
+<div><a href="admin.php" > 
+    <button class="btn btn-default"">Back</button></a>
 </div>
 <h2><b>Add Item Details</b> <span class="glyphicon glyphicon-shopping-cart"> </h2>
 <div ng-controller="AddItemDetails" ng-init="load()">

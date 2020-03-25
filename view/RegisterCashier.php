@@ -27,6 +27,9 @@ if(isset($_POST['submit'])){
         if($found->num_rows === 0){
             $result = $employee->employee_register($Id,$First_Name,$Last_Name,$Tele_Number,$Email,$Address,$Salary,$Username,$Password);
             if($result){
+                
+                header("Location: admin.php");
+
                 $messages[] = "Data Inserted...";
             }else{
                 $messages[] = "Failed Try Again";
@@ -42,15 +45,13 @@ if(isset($_POST['submit'])){
     
 }
 
-
-
 require_once "layout/header.php";
 ?>
 
 <div ng-controller="RegisterCashierController" class="container" ng-init="displayData2()">
  
-<div ng-controller="Admincontroller"> 
-<button class="btn btn-default" ng-click="showAdmin()">Back</button>
+<div> 
+<a href="admin.php"><button class="btn btn-default" >Back</button></a>
 </div>
 
 

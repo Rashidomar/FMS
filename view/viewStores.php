@@ -11,10 +11,10 @@ require_once "layout/header.php";
 ?>
 
 <h1>View stores ( Fruits )</h1>
-
-<div ng-controller="Admincontroller"> 
-  <button class="btn btn-default" ng-click="showAdmin()">Back</button>
+<div><a href="admin.php" > 
+    <button class="btn btn-default"">Back</button></a>
 </div>
+    
 
 <div class="container"  ng-controller="AddItemDetails" ng-init="load()">
 	<div class ="alert alert-light">

@@ -18,7 +18,7 @@ class Store{
 
     public function find_all(){
 
-        $result_set = $this->find_by_sql("SELECT * FROM `order`");
+        $result_set = $this->find_by_sql("SELECT * FROM `store`");
 
         return $result_set;
 
@@ -70,6 +70,16 @@ class Store{
         $result = $this->find_by_sql($query);
 
         //$result_set = $database->fetch_assoc($result);
+
+        return $result;
+
+    }
+
+    public function load_stores($itemcode,$amount){
+        
+        $query = "INSERT INTO load_stores_items(Item_Code,Load_Num,Amount) VALUES ('$itemcode',null,'$amount')"; 
+
+        $result = $this->find_by_sql($query);
 
         return $result;
 

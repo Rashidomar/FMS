@@ -6,15 +6,14 @@
 require_once "layout/header.php";
 ?>
 
-<div ng-controller="Admincontroller">
-  <button class="btn btn-default" ng-click="showAdmin()">Back</button>
+<div><a href="admin.php" > 
+    <button class="btn btn-default"">Back</button></a>
 </div>
-
-
+    
 <br /><br />
 <div ng-controller="Admincontroller">
   <div class="container" ng-controller="AddItemDetails" ng-init = viewOrder() ><center>
-                <style>
+<style>
                 * {
                   box-sizing: border-box;
                 }
@@ -49,8 +48,7 @@ require_once "layout/header.php";
                 #myTable tr.header, #myTable tr:hover {
                   background-color: #f1f1f1;
                 }
-                </style>
-
+</style>
 
 <h2>Loading For Farm Shop.....</h2>
 

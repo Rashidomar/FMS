@@ -53,9 +53,10 @@ $farmer = new Farmer();
 <div ng-controller="AddfarmerDetails" class="container" 
 ng-init="displayfarmers()">
 <hr>
-<div ng-controller="Admincontroller"> 
-<button class="btn btn-default" ng-click="showAdmin()">Back</button>
+<div><a href="admin.php" > 
+    <button class="btn btn-default"">Back</button></a>
 </div>
+    
       
 <h2><span class="glyphicon glyphicon-file"></span> Farmer's Details</h2>
 <table class="table table-bordered table-striped"> 

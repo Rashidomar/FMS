@@ -45,8 +45,9 @@ require_once "layout/header.php";
 <div ng-controller="AddCourseDetails">
 <div class="container container-fluid">
  
-    <div ng-controller="Admincontroller"> 
-    <button class="btn btn-default" ng-click="showAdmin()">Back</button></div>
+<div><a href="admin.php" > 
+    <button class="btn btn-default"">Back</button></a>
+</div>
     
     <center><h2><b>Add Cources</b></h2></center>
     <hr>  

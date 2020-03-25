@@ -4,7 +4,7 @@ require_once "layout/header.php";
 
 <div ng-controller="FarmShopController" class="container" ng-init="displayReport()">
 
-<button class="btn btn-default" ng-click="viewFOS()">Back</button>
+<a href="farmshop.php"><button class="btn btn-default">Back</button></a>
 
 
 <h2>FarmShop Report <span class="glyphicon glyphicon-shopping-cart"></span></h2>    
@@ -76,9 +76,7 @@ require_once "layout/header.php";
 <div class = "row">
 <!--<div class ="col-md-2"></div>-->
 <div  class = "col-md-12" class = style="width:500px;">  
-                        
-                        
-                             
+                                                  
   <br /><br />  
   <table class="table table-bordered table-striped"> 
     <thread class="thread-dark"> 

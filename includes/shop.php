@@ -110,28 +110,7 @@ class Shop{
 
     }
 
-    public function getReport($itemName,$date){ 
-    
-        $query = "SELECT tbl_order_item.item_name,sum(tbl_order_item.order_item_quantity) AS quantity,
-        sum(tbl_order_item.order_item_price) AS price,sum(tbl_order_item.order_item_actual_amount) AS total
-        FROM tbl_order_item  
-        LEFT JOIN tbl_order ON tbl_order_item.order_id=tbl_order.order_id WHERE tbl_order_item.item_name='$itemName' and tbl_order.order_date LIKE '%$date%'";
-    
-        $result = $this->find_by_sql($query);
 
-        return $result;
-        
-    }
-
-
-    public function view_load_shop(){
-
-        $query = "SELECT * FROM load_shop_items";
-
-        $result = $this->find_by_sql($query);
-
-        return $result;
-    }
     
     public function verify_view($shop_id){
 
@@ -161,6 +140,40 @@ class Shop{
         $result = $this->find_by_sql($query);
 
         return $result;
+    }
+
+    public function view_load_shop(){
+
+        $query = "SELECT * FROM load_shop_items";
+
+        $result = $this->find_by_sql($query);
+
+        return $result;
+    }
+
+    public function getReport($itemName,$date){ 
+    
+        $query = "SELECT tbl_order_item.item_name,sum(tbl_order_item.order_item_quantity) AS quantity,
+        sum(tbl_order_item.order_item_price) AS price,sum(tbl_order_item.order_item_actual_amount) AS total
+        FROM tbl_order_item  
+        LEFT JOIN tbl_order ON tbl_order_item.order_id=tbl_order.order_id WHERE tbl_order_item.item_name='$itemName' and tbl_order.order_date LIKE '%$date%'";
+    
+        $result = $this->find_by_sql($query);
+
+        return $result;
+        
+    }
+
+    public function load_farm_shop($itemcode,$amount){ 
+    
+        $getdatee=date("Y/m/d");
+        
+        $query = "INSERT INTO load_shop_items(Item_Code,Load_Num,Amount,Date1) VALUES ('$itemcode',null,'$amount','$getdatee')";
+    
+        $result = $this->find_by_sql($query);
+
+        return $result;
+        
     }
 }
 

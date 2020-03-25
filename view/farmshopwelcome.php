@@ -16,7 +16,7 @@ if(isset($_POST["submit"])){
 	$result = $farmer->farmer_authenticate($username,$password);
 
 	if($result){
-
+        header("Location: farmshop.php");
 		$messages[] = "Successful logged In";
 	}else{
 

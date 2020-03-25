@@ -6,10 +6,10 @@ $order = new Order();
 require_once "layout/header.php";
 ?>
 
-
-<div ng-controller="Admincontroller">
-  <button class="btn btn-default" ng-click="showAdmin()">Back</button>
+<div><a href="admin.php" > 
+    <button class="btn btn-default"">Back</button></a>
 </div>
+    
 <br /><br />
 <div ng-controller="RegShopDeliveredOrderController" ng-init = ViewOrdersDisplay() ><center>
 <div class="container" >

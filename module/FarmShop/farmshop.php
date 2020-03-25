@@ -24,7 +24,7 @@ function getReport($itemName,$date){
 
 $data = json_decode(file_get_contents("php://input"));
 echo($data);
-//$date = mysqli_real_escape_string($connect, $data->date);
+$date = mysqli_real_escape_string($connect, $data->date);
 
 $date="";
 

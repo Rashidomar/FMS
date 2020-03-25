@@ -1,11 +1,17 @@
 <?php
-require_once"../includes/admin.php";
+require_once "../includes/admin.php";
+
+require_once "../includes/sessions.php";
 
 $admin = new Admin();
+
+$session = new Session();
 
 $messages = array();
 
 if(isset($_POST['submit'])){
+
+echo '<script>alert("hello")</script>';
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -13,15 +19,30 @@ if(isset($_POST['submit'])){
     $result = $admin->admin_authenticate($username, $password);
 
     if($result){
-        $messages[] = "Successful Logged In ";
+
+        $Id = "";
+
+        while ($row = $result->fetch_assoc()) {
+
+            $Id = $row['Id'];
+
+        } 
+
+        $session_values = $session->create_session($Id, $username);
+
+        if($session_values['id'] && $session_values['username']){
+            
+            header("location: admin.php");
+
+            $messages[] = "Successful Logged In ";
+    
+        }
     }else{
 
         $messages[] = "Wrong Username and password";
     }
     
 }
-
-
 
 
 
