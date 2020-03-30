@@ -45,9 +45,9 @@ class Employee{
     {
          global $database;
 
-        $stmt = $database->connection->prepare("INSERT INTO `farmshopemployee` (`Id`,`First_Name`,`Last_Name`,`Tele_Number`,`Email`,`Address`,`Salary`,`Username`,`Password`) VALUES (?,?,?,?,?,?,?)");
+        $stmt = $database->connection->prepare("INSERT INTO `farmshopemployee` (`Id`,`First_Name`,`Last_Name`,`Tele_Number`,`Email`,`Address`,`Salary`,`Username`,`Password`) VALUES (?,?,?,?,?,?,?,?,?)");
 
-        $stmt->bind_param('sssssss', $Id,$First_Name,$Last_Name,$Tele_Number,$Email,$Address,$Salary,$Username,$Password);
+        $stmt->bind_param('sssssssss', $Id,$First_Name,$Last_Name,$Tele_Number,$Email,$Address,$Salary,$Username,$Password);
 
         if($stmt->execute()){
 

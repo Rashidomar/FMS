@@ -1,7 +1,9 @@
 <?php
-require_once "layout/header.php";
-
 require_once "../includes/farmer.php";
+
+require_once "../includes/sessions.php";
+
+$session = new Session();
 
 $farmer = new Farmer();
 
@@ -11,28 +13,47 @@ if(isset($_POST["submit"])){
 
 
 	$username = $_POST["username"];
-	$password = $_POST["password"];
+    $password = $_POST["password"];
+    
+    echo $username;
 
-	$result = $farmer->farmer_authenticate($username,$password);
+    $result = $farmer->farmer_authenticate($username,$password);
+    
+     var_dump($result);
 
-	if($result){
-        header("Location: farmshop.php");
-		$messages[] = "Successful logged In";
-	}else{
+     if($result){
 
-		$messages[] = "Failed Try Again .... ";
+        $Id = "";
 
-	}
+        while ($row = $result->fetch_assoc()) {
+
+            $Id = $row['Id'];
+
+        } 
+
+        $session_values = $session->create_session($Id, $username);
+
+        if($session_values['id'] && $session_values['username']){
+            
+            header("location: farmshop.php");
+
+            $messages[] = "Successful Logged In ";
+    
+        }
+    }else{
+
+        $messages[] = "Wrong Username and password";
+    }
 
 	// echo "<script>alert('hello, world')</script>";
 
 }
 
+require_once "layout/header.php";
 
 
 ?>
-<div ng-controller="shop">
-        <style>
+<style>
             .abc-cccc {
                 
                 padding: 8px;
@@ -42,10 +63,10 @@ if(isset($_POST["submit"])){
                 padding: 40px;
             }
             
-            </style>
+</style>
         <div class="container">
            <div class="login-form">
-            <form >
+            <form method="POST">
                     <h2 class="text-center"><span class="glyphicon glyphicon-shopping-cart"></span> Farm Shop Login</h2>  
                 <div class="form-group">
                     <div class="input-group">
@@ -68,10 +89,8 @@ if(isset($_POST["submit"])){
                 </div>
                 <div class="or-seperator"><i>or</i></div>
                 
-                
             </form>
             <p class="text-center text-muted small">Don't have an account? <a href="farmerRegister.php">Sign up here!</a></p>
-        </div>
         </div>
         </div>
 

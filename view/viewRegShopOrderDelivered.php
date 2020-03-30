@@ -18,8 +18,6 @@ require_once "layout/header.php";
       <button id="singlebutton" name="singlebutton" ng-click=DeliveredOrders() class="btn btn-warning">Delivered Orders</button>
       <div   style="width:500px;">
 
-
-
     <br />
       <h2>Registered Shop's Delivered Orders</h2>
     <br />

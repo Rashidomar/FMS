@@ -7,20 +7,20 @@ $employee = new Employee();
 
 if(isset($_POST['submit'])){
 
-    $id = $_POST['id'];
-	$firstname = $_POST['firstname'];
-	$lastname = $_POST['lastname'];
-	$phonenumber = $_POST['phonenumber'];
-	$email = $_POST['email'];
-	$address = $_POST['address'];
-	$salary = $_POST['salary'];
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-    $password2 = $_POST['password2'];
+    $Id = $_POST['id'];
+	$First_Name = $_POST['firstname'];
+	$Last_Name = $_POST['lastname'];
+	$Tele_Number = $_POST['phonenumber'];
+	$Email = $_POST['email'];
+	$Address = $_POST['address'];
+	$Salary = $_POST['salary'];
+	$Username = $_POST['username'];
+	$Password = $_POST['password'];
+    $Password2 = $_POST['password2'];
     
     // echo "<script>alert('hello, world')</script>";
 
-    if($password == $password2){
+    if($Password == $Password2){
 
         $found = $employee->check_employee($Id, $Username);
 
@@ -30,7 +30,6 @@ if(isset($_POST['submit'])){
                 
                 header("Location: admin.php");
 
-                $messages[] = "Data Inserted...";
             }else{
                 $messages[] = "Failed Try Again";
             }
@@ -40,9 +39,7 @@ if(isset($_POST['submit'])){
     }else{
 
         $messages[] = "Passwords do not match";
-    }
-
-    
+    }  
 }
 
 require_once "layout/header.php";

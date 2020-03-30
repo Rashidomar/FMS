@@ -3,6 +3,20 @@ require_once "../includes/sessions.php";
 
 $session = new Session();
 
+if(isset($_GET["link"]))
+{
+   $link = $_GET["link"];
+
+   if($link == "logout")
+   {
+      $result = $session->logout();
+      if($result == false){
+
+         header('Location: adminwelcome.php');
+      }
+   }
+}
+
 require_once "layout/header.php";
 ?>
 <style>
@@ -21,7 +35,7 @@ require_once "layout/header.php";
 <?php
 		if($session->is_logged_in()){
 
-			echo '<h1> <i class="fa fa-credit-card fa-1x"></i> Hi ' .$session->username.'</h1>';
+			echo '<h1> <i class="fa fa-credit-card fa-1x"></i> Hi ' .$session->username. '</h1>';
 		
 		}else{
             
@@ -37,7 +51,9 @@ require_once "layout/header.php";
             <i class="fa fa-shopping-cart fa-4x"></i><br/> Point of Sale</button>
         </a>
     </div>
-    <div class = "col-sm-4"></div>
+    <div class = "col-sm-4">
+        <a href="admin.php?link=logout" class="btn btn-success btn-sq-lg btn-block">logout</a>
+    </div>
 </div>
 </div>
 

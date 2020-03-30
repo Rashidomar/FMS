@@ -56,7 +56,7 @@ class Shop{
          
          //$enc_password = md5($password);
 
-        $stmt = $database->connection->prepare("INSERT INTO `registeredshop` (`nic`,`fn`,`ln`,`pn`,`address`,`email`,`un`,`pw`) VALUES (?,?,?,?,?,?,?)");
+        $stmt = $database->connection->prepare("INSERT INTO `registeredshop` (`nic`,`fn`,`ln`,`pn`,`address`,`email`,`un`,`pw`) VALUES (?,?,?,?,?,?,?,?)");
 
         $stmt->bind_param('ssssssss', $nic,$fn,$ln,$pn,$address,$email,$un,$pw);
 

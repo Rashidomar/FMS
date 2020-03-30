@@ -18,7 +18,7 @@ $admin = new Admin();
         {
            $new_admin = $admin->admin_register($employee_Id,$username,$password);
 
-           if($new_user)
+           if($new_admin)
            {
                 header('Location: adminwelcome.php');
     
@@ -59,7 +59,7 @@ require_once "layout/header.php";
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Username</label>  
   <div class="col-md-4">
-    <input name="" type="text" placeholder="username" class="form-control input-md">
+    <input name="username" type="text" placeholder="username" class="form-control input-md">
   </div>
 </div>
 

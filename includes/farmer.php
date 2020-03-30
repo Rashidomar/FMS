@@ -1,8 +1,6 @@
 
 <?php
 require_once "database.php";
-require_once "sessions.php";
-
 class Farmer{
 
     public function find_by_sql($sql=""){
@@ -37,7 +35,7 @@ class Farmer{
     {
         global $database;
 
-        $stmt = $database->connection->prepare("SELECT * FROM `registeredfarmer` WHERE `User_Name` = ? AND `Password` = ?");
+        $stmt = $database->connection->prepare("SELECT * FROM `registeredfarmer` WHERE `username` = ? AND `password` = ?");
 
         $stmt->bind_param('ss', $username, $password);
 

@@ -3,6 +3,20 @@ require_once "../includes/sessions.php";
 
 $session = new Session();
 
+if(isset($_GET["link"]))
+{
+   $link = $_GET["link"];
+
+   if($link == "logout")
+   {
+      $result = $session->logout();
+      if($result == false){
+
+         header('Location: adminwelcome.php');
+      }
+   }
+}
+
 
 require_once "layout/header.php";
 ?>
@@ -32,9 +46,8 @@ require_once "layout/header.php";
 	<div class ="col-sm-10"></div>
 	<div class="col-sm-2">
 		<div class="btn-group">
-		<button type="button" class="btn btn-warning btn-sq-lg glyphicon glyphicon-eye-open" href="RegisterCashier.php" > Register</button>
-		<button type="button" class="btn btn-warning btn-sq-lg dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				
+		<button type="button" class="btn btn-warning btn-sq-lg glyphicon glyphicon-eye-open" >Register</button>
+		<button type="button" class="btn btn-warning btn-sq-lg dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">	
 		<span class="caret"></span>
 		<span class="sr-only">Toggle Dropdown</span>
 		</button>
@@ -43,6 +56,7 @@ require_once "layout/header.php";
 			<li class="divider"></li>
 			<li><a href="RegisterCashier.php">Employee</a></li>
 			</ul>
+			<a href="admin.php?link=logout" class="btn btn-success btn-sq-lg btn-block">logout</a>
 		</div>
 	</div>
 	</div>
