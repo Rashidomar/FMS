@@ -31,7 +31,7 @@ else {
     //exit();
 
 }
-require_once "layout/header.php";
+require_once "../includes/layout/header.php";
 ?>
 <style>
     body {

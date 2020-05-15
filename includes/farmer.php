@@ -54,7 +54,7 @@ class Farmer{
          
          //$enc_password = md5($password);
 
-        $stmt = $database->connection->prepare("INSERT INTO `registeredfarmer` (`Id`,`First_Name`,`Tele_Number`,`Gender`,`Email`,`Address`,`variety`,`username`,`password`) VALUES (?,?,?,?,?,?,?)");
+        $stmt = $database->connection->prepare("INSERT INTO `registeredfarmer` (`Id`,`First_Name`,`Tele_Number`,`Gender`,`Email`,`Address`,`variety`,`username`,`password`) VALUES (?,?,?,?,?,?,?,?,?)");
 
         $stmt->bind_param('sssssssss', $Id,$First_Name,$Tele_Number,$Gender,$Email,$Address,$variety,$username,$password);
 
@@ -109,44 +109,24 @@ class Farmer{
     }
 }
 
-// $user = new User();
+$user = new Farmer();
+
 // $session = new Session();
 
-// $errors = array();
+// // $errors = array();
 
-// $result = $user->user_register("omar", "rashid", "omar@mail", "123");
+// $result = $user->farmer_register("test1","testname","000000","male","test@mail.com","testaddress","vegetable","test","test");
 
 // if($result)
 // {
-//     echo var_dump($result);
+//     echo "Successful";
 // }
 
-// $found_user = $user->user_authenticate("omar", 123);
+// $found_user = $user->farmer_authenticate("test", "test");
 
 // if($found_user)
 // {
-//     $user_id = "";
-//     $username = "";
-//     while($results = $found_user->fetch_assoc())
-//     {
-//         $user_id = $results["id"];
-//         $username = $results["username"];
-//     }
-
-//     echo $user_id . "<br>";
-    
-//     echo $username;
-
-//     $session_values = $session->create_session($user_id, $username);
-
-//     if($session_values['id'] && $session_values['username']){
-         
-//         header('Location: ../index.php');	
-//     }else{
-
-//         $errors[] = "wrong username and password";
-//     }
-
+//     echo var_dump($found_user);
 // }
 
 ?>

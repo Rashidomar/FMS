@@ -1,20 +1,4 @@
 <?php
-require_once "../includes/sessions.php";
-
-$session = new Session();
-
-if(isset($_GET["link"]))
-{
-   $link = $_GET["link"];
-
-   if($link == "logout")
-   {
-      $result = $session->logout();
-      if($result == false){
-         header('Location: LoginSt.php');
-      }
-   }
-}
 require_once "../includes/layout/header.php";
 ?>
 <style>
@@ -126,88 +110,21 @@ require_once "../includes/layout/header.php";
         color: #777;
         text-decoration: none;
     }
-    .login-form {
-        width: 385px;
-        margin: 30px auto;
-    }
-    .login-form form {
-        margin-bottom: 15px;
-        background: #f7f7f7;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        padding: 30px;
-    }
-    .login-form h2 {
-        margin: 0 0 15px;
-    }
-    .form-control, .login-btn {
-        min-height: 38px;
-        border-radius: 2px;
-    }
-    .input-group-addon .fa {
-        font-size: 18px;
-    }
-    .login-btn {
-        font-size: 15px;
-        font-weight: bold;
-    }
-    .social-btn .btn {
-        border: none;
-        margin: 10px 3px 0;
-        opacity: 1;
-    }
-    .social-btn .btn:hover {
-        opacity: 0.9;
-    }
-    .social-btn .btn-primary {
-        background: #507cc0;
-    }
-    .social-btn .btn-info {
-        background: #64ccf1;
-    }
-    .social-btn .btn-danger {
-        background: #df4930;
-    }
-    .or-seperator {
-        margin-top: 20px;
-        text-align: center;
-        border-top: 1px solid #ccc;
-    }
-    .or-seperator i {
-        padding: 0 10px;
-        background: #f7f7f7;
-        position: relative;
-        top: -11px;
-        z-index: 1;
-    }
-
-    .abc-cccc {
-
-        padding: 8px;
-    }
-    .well {
-
-        padding: 40px;
-    }
-
 </style>
+
 <!-- navbar -->
 <?php
-require_once "../includes/layout/navbar.php";
+require_once "../includes/layout/admin_navbar.php";
 ?>
 <!-- SlideShoe -->
 <?php
 require_once "../includes/layout/slideshow.php";
 ?>
-<div class="container container-fluid">
-
-    <br/>
-    <a href="#"><button class="btn btn-default">Back</button></a>
-    <hr>
-</div>
+<!-- About -->
+<?php
+require_once "../includes/layout/about.php";
+?>
+<!-- <footer> -->
 <?php
 require_once "../includes/layout/footer.php";
 ?>
-   
-
-
-

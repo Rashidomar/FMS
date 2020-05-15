@@ -1,6 +1,6 @@
 <?php
 
-require_once "../includes/farmer.php";
+require_once "../includes/shop.php";
 
 $shop = new Shop();
 
@@ -200,85 +200,13 @@ if (isset($_POST['submit'])) {
 
 <body >
 <div class="container container-fluid">
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="Home.html">DARKO FARM</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li><a href="#services">SERVICES</a></li>
-                    <li><a href="course.php">COURSES</a></li>
-                    <li><a href="Order_foods.php">PRICING</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
-                    <ul class="nav navbar-nav navbar-right">
-                        <!--li><a href="Registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li-->
-                        <li><div class="dropdown">
-                                <a><button class="dropbtn"><span class="glyphicon glyphicon-log-in"></span> Sign in | Sign up</button></a>
-                                <div class="dropdown-content">
-                                    <div ng-controller="loginbuttonctrl">
-                                        <a  href="LoginSh.php" >Registered Shop</a>
-                                        <a href="LoginFa.php">Registered Farmer</a>
-                                        <a href="LoginFa.php" >Student</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <!--li><a href="FarmShopLoginForm.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li-->
-                    </ul>
-                </ul>
-            </div>
-        </div>
-
-    </nav>
-
-    <div id="myCarousel" class="carousel slide" data-interval="6000" data-ride="carousel">
-        <!-- Carousel indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <!-- Carousel items -->
-        <div class="carousel-inner" role="listbox" style=" width:100%; height:250px !important;">
-            <div class="item active">
-                <img src="img/y.jpg" alt="First Slide" width="100%">
-                <div class="carousel-caption">
-                    <h3>Vegetables and Fruits</h3>
-                    <p>There are fresh vegetables and fruits</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="img/z.jpg" alt="Second Slide" width="100%" >
-                <div class="carousel-caption">
-                    <h3>Clean Milk Products</h3>
-                    <p>Fresh Milk Products with good condition</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="img/zz.jpg" alt="Third Slide" width="100%">
-                <div class="carousel-caption">
-                    <h3>Farm House</h3>
-                    <p>Vegetables , fruits & beans from farm house</p>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Carousel nav -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-    </div>
+<?php
+require_once "../includes/layout/navbar.php";
+?>
+<!-- SlideShoe -->
+<?php
+require_once "../includes/layout/slideshow.php";
+?>
 
     <br/>
     <a href="LoginFa.php"><button class="btn btn-default">Back</button></a>
@@ -330,6 +258,6 @@ if (isset($_POST['submit'])) {
     </div>
 </div>
 <?php
-require_once "layout/footer.php";
+require_once "../includes/layout/footer.php";
 ?>
 

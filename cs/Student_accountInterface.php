@@ -6,7 +6,7 @@ $session = new Session();
 
 $student = new Student();
 
-require "layout/header.php";
+require "../includes/layout/header.php";
 ?>
 <style>
     body {
