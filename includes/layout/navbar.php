@@ -1,5 +1,7 @@
 <?php
 require_once "../includes/sessions.php";
+
+$session = new Session();
 ?>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
