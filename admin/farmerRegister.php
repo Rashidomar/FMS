@@ -178,7 +178,7 @@ require_once "../includes/layout/header.php";
   		    if ($messages) {
   		        foreach ($messages as $message) {
   		          echo '
-  		          <div class="alert alert-danger"><strong>'
+  		          <div class="alert alert-danger role="alert"><strong>'
   		          .$message 
   		          .'</strong></div>';
   		    }

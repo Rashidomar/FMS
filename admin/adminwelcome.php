@@ -11,8 +11,6 @@ $messages = array();
 
 if(isset($_POST['submit'])){
 
-echo '<script>alert("hello")</script>';
-
     $username = $_POST['username'];
     $password = $_POST['password'];
 

@@ -281,7 +281,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 echo "<div class='alert alert-success'>Welcome to the member's area, <b>" . $_SESSION['username'] . "</b>!</div>";
 ?>
 <script type="text/javascript">
-    var a='<?php echo $_SESSION['username'];?>';
+    var a ='<?php echo $_SESSION['username'];?>';
     swal({
         text: 'Welcome '+a+'!',
     });
